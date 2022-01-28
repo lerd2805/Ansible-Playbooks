@@ -14,9 +14,13 @@
     command: esxcli network vswitch standard portgroup add -p "VLAN80" -v vSwitch1
   - name: Crear portgroup VLAN90 en vSwitch01
     command: esxcli network vswitch standard portgroup add -p "VLAN90" -v vSwitch1
-  - name: Agregar vlan ID a los portgoups
+  - name: Agregar vlan ID Portgroup VLAN50
     command: esxcli network vswitch standard portgroup set --portgroup-name VLAN50 --vlan-id 50
+  - name: Agregar vlan ID Portgroup VLA60
     command: esxcli network vswitch standard portgroup set --portgroup-name VLAN60 --vlan-id 60
+  - name: Agregar vlan ID Portgroup VLA570
     command: esxcli network vswitch standard portgroup set --portgroup-name VLAN70 --vlan-id 70
+  - name: Agregar vlan ID Portgroup VLA80
     command: esxcli network vswitch standard portgroup set --portgroup-name VLAN80 --vlan-id 80
+  - name: Agregar vlan ID Portgroup VLA90
     command: esxcli network vswitch standard portgroup set --portgroup-name VLAN90 --vlan-id 90   
