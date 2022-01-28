@@ -6,8 +6,10 @@
     command: esxcli network vswitch standard portgroup add -p "Data" -v vSwitch1
   - name: Crear portgroup VLAN50 en vSwitch01
     command: esxcli network vswitch standard portgroup add -p "VLAN50" -v vSwitch1
+    command: esxcfg-vswitch -v 50 -p "VLAN50" vSwitch1
   - name: Crear portgroup VLAN60 en vSwitch01
     command: esxcli network vswitch standard portgroup add -p "VLAN60" -v vSwitch1
+    command: esxcfg-vswitch -v 60 -p "VLAN60" vSwitch1
   - name: Crear portgroup VLAN70 en vSwitch01
     command: esxcli network vswitch standard portgroup add -p "VLAN70" -v vSwitch1
   - name: Crear portgroup VLAN80 en vSwitch01
