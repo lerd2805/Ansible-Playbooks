@@ -5,7 +5,7 @@
   - name: Crear vSwitch01
     command: esxcli network vswitch standard add -v vSwitch1
   - name: Añadir interfaz vmnic1 al vSwitch01
-    command: esxcli network vswitch standard uplink add -u vmnic2 -v vSwitch1
+    command: esxcli network vswitch standard uplink add -u vmnic1 -v vSwitch1
   - name: Añadir interfaz vmnic2 al vSwitch01
     command: esxcli network vswitch standard uplink add -u vmnic2 -v vSwitch1
   - name: Crear portgroup dbigcloud en vSwitch01
