@@ -1,6 +1,6 @@
 ---
-- hosts: falabesx.wdlabs.local
-  remote_user: root
+- hosts: all
+  remote_user: webdvi 
   tasks:
   - name: Crear vSwitch01
     command: esxcli network vswitch standard add -v vSwitch1
