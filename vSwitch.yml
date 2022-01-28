@@ -1,5 +1,5 @@
 ---
-- hosts: falabesx.wdlabs.com
+- hosts: falabesx.wdlabs.local
   remote_user: root
   tasks:
   - name: Crear vSwitch01
