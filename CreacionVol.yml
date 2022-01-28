@@ -15,6 +15,6 @@
     space_slo: none
     nvfail_enabled: False
     comment: ansible created volume
-    hostname: "{{ netapp_hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
+    hostname: "{{ 192.168.10.146 }}"
+    username: "{{ admin }}"
+    password: "{{ Admin12. }}"
