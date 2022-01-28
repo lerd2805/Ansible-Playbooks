@@ -2,15 +2,15 @@
 - hosts: all
   remote_user: webdvi 
   tasks:
-- name: Crear portgroup Data en vSwitch01
-  command: esxcli network vswitch standard portgroup add -p "Data" -v vSwitch1
-- name: Crear portgroup VLAN50 en vSwitch01
-  command: esxcli network vswitch standard portgroup add -p "VLAN50" -v vSwitch1
-- name: Crear portgroup VLAN60 en vSwitch01
-  command: esxcli network vswitch standard portgroup add -p "VLAN60" -v vSwitch1
-- name: Crear portgroup VLAN70 en vSwitch01
-  command: esxcli network vswitch standard portgroup add -p "VLAN70" -v vSwitch1
-- name: Crear portgroup VLAN80 en vSwitch01
-  command: esxcli network vswitch standard portgroup add -p "VLAN80" -v vSwitch1
-- name: Crear portgroup VLAN90 en vSwitch01
-  command: esxcli network vswitch standard portgroup add -p "VLAN90" -v vSwitch1
+  - name: Crear portgroup Data en vSwitch01
+    command: esxcli network vswitch standard portgroup add -p "Data" -v vSwitch1
+  - name: Crear portgroup VLAN50 en vSwitch01
+    command: esxcli network vswitch standard portgroup add -p "VLAN50" -v vSwitch1
+  - name: Crear portgroup VLAN60 en vSwitch01
+    command: esxcli network vswitch standard portgroup add -p "VLAN60" -v vSwitch1
+  - name: Crear portgroup VLAN70 en vSwitch01
+    command: esxcli network vswitch standard portgroup add -p "VLAN70" -v vSwitch1
+  - name: Crear portgroup VLAN80 en vSwitch01
+    command: esxcli network vswitch standard portgroup add -p "VLAN80" -v vSwitch1
+  - name: Crear portgroup VLAN90 en vSwitch01
+    command: esxcli network vswitch standard portgroup add -p "VLAN90" -v vSwitch1
