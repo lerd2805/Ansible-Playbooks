@@ -1,0 +1,9 @@
+---
+- name: Install ncdu on Ubuntu
+  hosts: all
+    
+  tasks:
+
+  - name: Install the package "ncdu"
+    apt:
+      name: ncdu
