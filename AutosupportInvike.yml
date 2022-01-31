@@ -1,0 +1,10 @@
+---
+- name: Send message
+  na_ontap_autosupport_invoke:
+    name: node1
+    message: invoked test autosupport rest
+    uri: http://1.2.3.4/delivery_uri
+    type: test
+    hostname: "{{ hostname }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
