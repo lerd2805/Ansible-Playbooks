@@ -4,11 +4,11 @@
   vars:
     login: &login
     hostname: 192.168.10.52
-    username:ansible
-    password:Admin12.
-    https:true
-    validate_certs:false
-    clustername:SGL-CL-910
+    username: ansible
+    password: Admin12.
+    https: true
+    validate_certs: false
+    clustername: SGL-CL-910
   tasks:
   - name: Install Licenses
     na_ontap_cluster:
@@ -16,16 +16,16 @@
       cluster_name: "{{ clustername }}"
       license_code: "{{ item }}"
       <<: *login
-      loop:
-        - YVUCRRRRYVHXCFABGAAAAAAAAAAA
-        - WKQGSRRRYVHXCFABGAAAAAAAAAAA
-        - SOHOURRRYVHXCFABGAAAAAAAAAAA
-        - YBSOYRRRYVHXCFABGAAAAAAAAAAA
-        - KQSRRRRRYVHXCFABGAAAAAAAAAAA
-        - MBXNQRRRYVHXCFABGAAAAAAAAAAA
-        - QDDSVRRRYVHXCFABGAAAAAAAAAAA
-        - CYAHWRRRYVHXCFABGAAAAAAAAAAA
-        - GUJZTRRRYVHXCFABGAAAAAAAAAAA
-        - OSYVWRRRYVHXCFABGAAAAAAAAAAA
-        - UZLKTRRRYVHXCFABGAAAAAAAAAAA
-        - EJFDVRRRYVHXCFABGAAAAAAAAAAA
+    loop:
+      - YVUCRRRRYVHXCFABGAAAAAAAAAAA
+      - WKQGSRRRYVHXCFABGAAAAAAAAAAA
+      - SOHOURRRYVHXCFABGAAAAAAAAAAA
+      - YBSOYRRRYVHXCFABGAAAAAAAAAAA
+      - KQSRRRRRYVHXCFABGAAAAAAAAAAA
+      - MBXNQRRRYVHXCFABGAAAAAAAAAAA
+      - QDDSVRRRYVHXCFABGAAAAAAAAAAA
+      - CYAHWRRRYVHXCFABGAAAAAAAAAAA
+      - GUJZTRRRYVHXCFABGAAAAAAAAAAA
+      - OSYVWRRRYVHXCFABGAAAAAAAAAAA
+      - UZLKTRRRYVHXCFABGAAAAAAAAAAA
+      - EJFDVRRRYVHXCFABGAAAAAAAAAAA
