@@ -4,43 +4,40 @@
   name: NetApp NFS System Setup
   vars:
     login: &login
-     hostname: 192.168.1.50 # NetApp Cluster IP
+     hostname: 192.168.10.52 # NetApp Cluster IP
      username: ansible # Cluster User
-     password: Password123 # Cluster Password
+     password: Admin12. # Cluster Password
      https: true
      validate_certs: false
-    clustername: CLUSTER96 # Cluster Name
-    ntpservers: 192.168.1.101 # Time Server
-    aggrrootoldname: aggr0_CLUSTER96_01 # Aggregate root name after Cluster Setup
-    aggrrootnewname: aggr0_CLUSTER96_01_root # New Aggregate root name
-    aggrdataname: aggr1_CLUSTER96_01_data # New Data Aggregate name
+    clustername: SGL_CL_910-01 # Cluster Name
+    aggrdataname: aggr1_SGL_CL_910_01_data # New Data Aggregate name
     diskcount: 26 # Number of disks to add to the Data Aggregate
     svmname: SVM1 # SVM or Vserver name
     rootvolname: SVM1_root # SVM root vol name
-    rootvolaggr: aggr1_CLUSTER96_01_data # Which aggregate to place the SVM root vol
+    rootvolaggr: aggr1_SGL_CL_910_01_data # Which aggregate to place the SVM root vol
     rootvolsecurity: unix # SVM Root vol security stype
-    allowedaggrs: aggr1_CLUSTER96_01_data # Allowed SVM data Aggregates
+    allowedaggrs: aggr1_SGL_CL_910_01_data # Allowed SVM data Aggregates
     allowedprotocols: nfs # Allowed SVM Protocols
     nfsclientmatchsubnet: 192.168.2.0/24 # Allow this subnet to access NFS
-    svmdnsdomain: vmlab.local # SVM DNS Domain
-    svmdnsservers: 192.168.1.101 # SVM DNS Servers
+    svmdnsdomain: wdlabs.local # SVM DNS Domain
+    svmdnsservers: 192.168.10.10 # SVM DNS Servers
     nfsvolname: NFS_vol1 # First NFS Vol withint your SVM
-    nfsaggr: aggr1_CLUSTER96_01_data # Which Aggregate to place the NFS Vol on
-    nfsvolsize: 100 # NFS Vol Size GB
+    nfsaggr: aggr1_SGL_CL_910_01_data # Which Aggregate to place the NFS Vol on
+    nfsvolsize: 10 # NFS Vol Size GB
     vlan: 5 # NFS VLAN
     parentinterface: e0d # Interface where VLAN will be created
     broadcastname: NFS # Create a new Broadcast Domain with this name
-    broadcastports: ["CLUSTER96-01:e0d-5"] # Add ports here, multiple ports use comma's
+    broadcastports: ["SGL_CL_910_01:e0d-5"] # Add ports here, multiple ports use comma's
     subnetname: NFS-Subnet # NFS Subnet Name
     subnetnetwork: 192.168.2.0/24 # NFS Network Subnet
     subnetiprange: ["192.168.2.51-192.168.2.52"] # NFS LIF IP within the NFS subnet pool
     lifinterfacename: nfs_lif01 # SVM NFS Lif name
     lifhomeport: e0d-5 # Home port for SVM NFS Lif
-    lifhomenode: CLUSTER96-01 # Home node for SVM NFS Lif
+    lifhomenode: SGL_CL_910_01 # Home node for SVM NFS Lif
     lifaddress: 192.168.2.51 # SVM NFS Lif IP Address
     lifnetmask: 255.255.255.0 # SVM NFS Lif Subnet
     vservername: SVM1 # SVM or Vserver Name
-    aggr: aggr1_CLUSTER96_01_data # Which Aggregate to create second NFS vol
+    aggr: aggr1_SGL_CL_910_01_data # Which Aggregate to create second NFS vol
     vol_name: ansibleVol # Second NFS vol name
   tasks:
   - name: Install NetApp simulator Licenses
@@ -62,25 +59,12 @@
       - SWBBDQKBFDUFZGABGAAAAAAAAAAA
       - YDPPZPKBFDUFZGABGAAAAAAAAAAA
       - INIIBQKBFDUFZGABGAAAAAAAAAAA
-  - name: Set NTP
-    na_ontap_ntp:
-      state: present
-      version: auto
-      server_name: "{{ ntpservers }}"
-      <<: *login
-  - name: Set Timezone
+   - name: Set Timezone
     na_ontap_command:
-      command: ['cluster', 'date', 'modify', '-timezone', 'Australia/Sydney']
+      command: ['cluster', 'date', 'modify', '-timezone', 'America/Panama']
       privilege: admin
       <<: *login
-  - name: Rename Root Aggregate
-    na_ontap_aggregate:
-      state: present
-      service_state: online
-      from_name: "{{ aggrrootoldname }}"
-      name: "{{ aggrrootnewname }}"
-      <<: *login
-  - name: Create and Online New Data Aggregate
+   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
       state: present
       service_state: online
@@ -107,7 +91,7 @@
       parent_interface: "{{ parentinterface }}"
       <<: *login
     loop: # Add nodes below
-     - CLUSTER96-01
+     - SGL_CL_910-01
   - name: Create Broadcast Domain
     na_ontap_broadcast_domain:
       state: present
