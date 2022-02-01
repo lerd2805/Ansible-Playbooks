@@ -16,8 +16,7 @@
       cluster_name: "{{ clustername }}"
       license_code: "{{ item }}"
       <<: *login
-   loop:
-     - YVUCRRRRYVHXCFABGAAAAAAAAAAA
+   loop:- YVUCRRRRYVHXCFABGAAAAAAAAAAA
      - WKQGSRRRYVHXCFABGAAAAAAAAAAA
      - SOHOURRRYVHXCFABGAAAAAAAAAAA
      - YBSOYRRRYVHXCFABGAAAAAAAAAAA
