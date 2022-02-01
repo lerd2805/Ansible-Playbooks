@@ -15,7 +15,7 @@
       state: present
       cluster_name: "{{ clustername }}"
       license_code: "{{ item }}"
-      <<: login
+      <<: *login
     loop:
       - YVUCRRRRYVHXCFABGAAAAAAAAAAA
       - WKQGSRRRYVHXCFABGAAAAAAAAAAA
