@@ -6,9 +6,9 @@
    hostname: 192.168.10.52
     username:ansible
     password:Admin12.
-    https: true
-    validate_certs: false
-    clustername: SGL-CL-910
+    https:true
+    validate_certs:false
+    clustername:SGL-CL-910
   tasks:
   - name: Install Licenses
     na_ontap_cluster:
