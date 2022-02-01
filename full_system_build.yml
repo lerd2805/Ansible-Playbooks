@@ -58,13 +58,8 @@
       - GUJZTRRRYVHXCFABGAAAAAAAAAAA
       - OSYVWRRRYVHXCFABGAAAAAAAAAAA
       - UZLKTRRRYVHXCFABGAAAAAAAAAAA
-      - EJFDVRRRYVHXCFABGAAAAAAAAAAA
+      - EJFDVRRRYVHXCFABGAAAAAAAAAAA   
    
-   - name: Set Timezone
-    na_ontap_command:
-      command: ['cluster', 'date', 'modify', '-timezone', 'America/Panama']
-      privilege: admin
-      <<: *login
    - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
       state: present
