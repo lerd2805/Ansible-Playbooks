@@ -17,6 +17,7 @@
       license_code: "{{ item }}"
       <<: *login
    loop:
+   
      - YVUCRRRRYVHXCFABGAAAAAAAAAAA
      - WKQGSRRRYVHXCFABGAAAAAAAAAAA
      - SOHOURRRYVHXCFABGAAAAAAAAAAA
