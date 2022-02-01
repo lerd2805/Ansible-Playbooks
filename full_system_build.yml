@@ -1,6 +1,4 @@
 ---
-collections:
-- netapp.ontap
 - hosts: localhost
   gather_facts: false
   name: NetApp NFS System Setup
