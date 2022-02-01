@@ -1,9 +1,0 @@
----
-- name: Add licenses
-  na_ontap_license:
-    state: present
-    hostname: "{{ netapp_hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
-    serial_number: #################
-    license_codes: 
