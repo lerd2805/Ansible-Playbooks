@@ -4,8 +4,8 @@
   vars:
    login: &login
    hostname: 192.168.10.52
-    username: ansible
-    password: Admin12.
+    username:ansible
+    password:Admin12.
     https: true
     validate_certs: false
     clustername: SGL-CL-910
