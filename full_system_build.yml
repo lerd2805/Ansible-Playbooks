@@ -60,7 +60,7 @@
       - UZLKTRRRYVHXCFABGAAAAAAAAAAA
       - EJFDVRRRYVHXCFABGAAAAAAAAAAA   
    
-   - name: Create and Online New Data Aggregate
+  - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
       state: present
       service_state: online
