@@ -2,7 +2,7 @@
 - hosts: localhost
   name: NetApp licensing
   vars:
-    login: login
+    login: &login
     hostname: 192.168.10.52
     username: ansible
     password: Admin12.
