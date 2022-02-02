@@ -14,7 +14,7 @@
 - name: Assign specified total disks to node
   netapp.ontap.na_ontap_disks:
     node: SGL_CL_910-01
-    disk_count: 2
+    disk_count: 30
     disk_type: FCAL
     min_spares: 0
     hostname: "{{ hostname }}"
