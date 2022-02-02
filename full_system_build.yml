@@ -27,13 +27,13 @@
     vlan: 5 # NFS VLAN
     parentinterface: e0d # Interface where VLAN will be created
     broadcastname: NFS # Create a new Broadcast Domain with this name
-    broadcastports: ["SGL_CL_910_01:e0d-5"] # Add ports here, multiple ports use comma's
+    broadcastports: ["SGL_CL_910-01:e0d-5"] # Add ports here, multiple ports use comma's
     subnetname: NFS-Subnet # NFS Subnet Name
     subnetnetwork: 192.168.2.0/24 # NFS Network Subnet
     subnetiprange: ["192.168.2.51-192.168.2.52"] # NFS LIF IP within the NFS subnet pool
     lifinterfacename: nfs_lif01 # SVM NFS Lif name
     lifhomeport: e0d-5 # Home port for SVM NFS Lif
-    lifhomenode: SGL_CL_910_01 # Home node for SVM NFS Lif
+    lifhomenode: SGL_CL_910-01 # Home node for SVM NFS Lif
     lifaddress: 192.168.2.51 # SVM NFS Lif IP Address
     lifnetmask: 255.255.255.0 # SVM NFS Lif Subnet
     vservername: SVM1 # SVM or Vserver Name
