@@ -1,0 +1,23 @@
+- hosts: localhost
+  gather_facts: false
+  name: NetApp NFS System Setup
+  vars:
+    login: &login
+     hostname: 192.168.10.52 # NetApp Cluster IP
+     username: ansible # Cluster User
+     password: Admin12. # Cluster Password
+     https: true
+     validate_certs: false
+    clustername: SGL_CL_910-01 # Cluster Name
+    aggrdataname: aggr1_SGL_CL_910_01_data # New Data Aggregate name
+    diskcount: 26 # Number of disks to add to the Data Aggregate
+  tasks:
+    - name: Create and Online New Data Aggregate
+    na_ontap_aggregate:
+      state: present
+      service_state: online
+      name: "{{ aggrdataname }}"
+      disk_count: "{{ diskcount }}"
+      wait_for_online: true
+      time_out: 300
+      <<: *login
