@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   gather_facts: false
-  name: NetApp CIFS Setup
+  name: NetApp Assign Disk Setup
   vars:
     login: &login
      hostname: 192.168.10.52 # NetApp Cluster IP
@@ -11,11 +11,11 @@
      validate_certs: false
     
   task:  
-- name: Assign specified total disks to node
-  netapp.ontap.na_ontap_disks:
-    node: SGL_CL_910-01
-    disk_count: 30
-    disk_type: FCAL
-    min_spares: 0
-    hostname: "{{ hostname }}"
-    <<: *login
+  - name: Assign specified total disks to node
+    netapp.ontap.na_ontap_disks:
+      node: SGL_CL_910-01
+      disk_count: 30
+      disk_type: FCAL
+      min_spares: 0
+      hostname: "{{ hostname }}"
+      <<: *login
