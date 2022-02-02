@@ -38,6 +38,6 @@
    
   - name: Create CIFS LIF
     na_ontap_command:
-      command: ['network', 'interface', 'create', '-vserver', '"{{ vservername }}"', '-home-node', '"{{ lifhomenode }}"', '-home-port', '"{{ lifhomeport }}"', '-data-protocol', 'nfs', '-subnet-name', '"{{ subnetname }}"', '-failover-policy', 'system-defined', '-firewall-policy', 'data', '-lif', '"{{ lifinterfacename }}"']
+      command: ['network', 'interface', 'create', '-vserver', '"{{ vservername }}"', '-home-node', '"{{ lifhomenode }}"', '-home-port', '"{{ lifhomeport }}"', '-data-protocol', 'cifs', '-failover-policy', 'system-defined', '-firewall-policy', 'data', '-lif', '"{{ lifinterfacename }}"']
       privilege: admin
       <<: *login
