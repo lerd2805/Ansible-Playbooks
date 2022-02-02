@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   gather_facts: false
-  name: NetApp NFS System Setup
+  name: NetApp CIFS Setup
   vars:
     login: &login
      hostname: 192.168.10.52 # NetApp Cluster IP
@@ -9,19 +9,32 @@
      password: Admin12. # Cluster Password
      https: true
      validate_certs: false
-  task:   
-  - name: Create cifs_server
-    netapp.ontap.na_ontap_cifs_server:
+    svmname: svm_CIFS # SVM or Vserver name
+    rootvolname: svm_CIFS_root # SVM root vol name
+    rootvolaggr: aggr1_SGL_CL_910_01_data # Which aggregate to place the SVM root vol
+    allowedaggrs: aggr1_SGL_CL_910_01_data # Allowed SVM data Aggregates
+    allowedprotocols: cifs # Allowed SVM Protocols
+    cifsvolname: CIFS_vol1 # First NFS Vol withint your SVM
+    cifsaggr: aggr1_SGL_CL_910_01_data # Which Aggregate to place the CIFS Vol on
+    cifsvolsize: 10 # CIFS Vol Size GB
+    lifinterfacename: cifs_lif01 # SVM CIFS Lif name
+    lifhomeport: e0d # Home port for SVM CIFS Lif
+    lifhomenode: SGL_CL_910-01 # Home node for SVM CIFS Lif
+    lifaddress: 192.168.2.52 # SVM NFS Lif IP Address
+    lifnetmask: 255.255.255.0 # SVM NFS Lif Subnet
+  - name: Create Vserver
+    na_ontap_svm:
       state: present
-      name: data2
-      vserver: svm_CIFS
-      service_state: stop
+      name: "{{ vservername }}"
+      root_volume: "{{ rootvolname }}"
+      root_volume_aggregate: "{{ rootvolaggr }}"
+      root_volume_security_style: "{{ rootvolsecurity }}"
+      aggr_list: "{{ allowedaggrs }}"
+      allowed_protocols: "{{ allowedprotocols }}"
       <<: *login
-    
-  - name: Start cifs_server
-    netapp.ontap.na_ontap_cifs_server:
-    state: present
-    name: data2
-    vserver: svm_CIFS
-    service_state: started
-    <<: *login
+   
+  - name: Create CIFS LIF
+    na_ontap_command:
+      command: ['network', 'interface', 'create', '-vserver', '"{{ vservername }}"', '-home-node', '"{{ lifhomenode }}"', '-home-port', '"{{ lifhomeport }}"', '-data-protocol', 'nfs', '-subnet-name', '"{{ subnetname }}"', '-failover-policy', 'system-defined', '-firewall-policy', 'data', '-lif', '"{{ lifinterfacename }}"']
+      privilege: admin
+      <<: *login
