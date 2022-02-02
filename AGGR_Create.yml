@@ -1,6 +1,6 @@
 - hosts: localhost
   gather_facts: false
-  name: NetApp NFS System Setup
+  name: NetApp CIFS Setup
   vars:
     login: &login
      hostname: 192.168.10.52 # NetApp Cluster IP
