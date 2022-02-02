@@ -1,1 +1,6 @@
 ---
+- hosts: localhost
+  gather_facts: false
+  name: NetApp CIFS Setup
+  vars:
+    login: &login
