@@ -22,7 +22,7 @@
     lifhomenode: SGL_CL_910-01 # Home node for SVM CIFS Lif
     lifaddress: 192.168.2.52 # SVM NFS Lif IP Address
     lifnetmask: 255.255.255.0 # SVM NFS Lif Subnet
-  
+  tasks:
   - name: Create Vserver
     na_ontap_svm:
       state: present
