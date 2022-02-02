@@ -12,6 +12,7 @@
     svmname: svm_CIFS # SVM or Vserver name
     rootvolname: svm_CIFS_root # SVM root vol name
     rootvolaggr: aggr1_SGL_CL_910_01_data # Which aggregate to place the SVM root vol
+    rootvolsecurity: mixed # SVM Root vol security stype
     allowedaggrs: aggr1_SGL_CL_910_01_data # Allowed SVM data Aggregates
     allowedprotocols: cifs # Allowed SVM Protocols
     cifsvolname: CIFS_vol1 # First NFS Vol withint your SVM
