@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: NetApp Info
+  vars:
+    login: &login
+     hostname: 192.168.10.52 # NetApp Cluster IP
+     username: ansible # Cluster User
+     password: Admin12. # Cluster Password
+     https: true
+     validate_certs: false
+  tasks:
+    - name: Get NetApp info as Cluster Admin (Password Authentication)
+    na_ontap_info:
+     hostname: "na-vsim"
+     username: "admin"
+     password: "admins_password"
+    register: ontap_info
+  - debug:
+      msg: "{{ ontap_info.ontap_info }}"
