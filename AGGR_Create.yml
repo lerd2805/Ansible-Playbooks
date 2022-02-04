@@ -14,7 +14,7 @@
     diskcount: 26 # Number of disks to add to the Data Aggregate
   tasks:
     - name: Create and Online New Data Aggregate
-    na_ontap_aggregate:
+      na_ontap_aggregate:
       state: present
       service_state: online
       name: "{{ aggrdataname }}"
