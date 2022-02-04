@@ -13,7 +13,7 @@
   - name: Assign specified total disks to node
     netapp.ontap.na_ontap_disks:
      node: SGL_CL_910-01
-     disk_count: 53
+     disk_count: 56
      disk_type: FCAL
      min_spares: 2
      <<: *login
