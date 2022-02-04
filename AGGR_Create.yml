@@ -10,7 +10,7 @@
      https: true
      validate_certs: false
     clustername: SGL_CL_910-01 # Cluster Name
-    aggrdataname: aggr1_SGL_CL_910_02_data # New Data Aggregate name
+    aggrdataname: aggr1_SGL_CL_910_01_data # New Data Aggregate name
     diskcount: 26 # Number of disks to add to the Data Aggregate
   tasks:
   - name: Create and Online New Data Aggregate
