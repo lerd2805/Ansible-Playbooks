@@ -14,7 +14,7 @@
      netapp.ontap.na_ontap_user:
       state: present
       name: webdvi
-      applications: ssh,console,ontapi,serviceprocessor,http
+      applications: ssh,console,ontapi,service_processor,http
       authentication_method: password
       set_password: Admin12.
       lock_user: True
@@ -25,7 +25,7 @@
      netapp.ontap.na_ontap_user:
       state: present
       name: fulvio
-      applications: ssh,console,ontapi,serviceprocessor,http
+      applications: ssh,console,ontapi,service_processor,http
       authentication_method: password
       set_password: Admin12.
       lock_user: True
