@@ -19,6 +19,7 @@
       set_password: Admin12.
       lock_user: True
       role_name: admin
+      vserver: SGL_CL_910
       <<: *login
    - name: Create User
      netapp.ontap.na_ontap_user:
@@ -29,4 +30,5 @@
       set_password: Admin12.
       lock_user: True
       role_name: admin
+      vserver: SGL_CL_910
       <<: *login
