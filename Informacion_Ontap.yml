@@ -12,9 +12,9 @@
   tasks:
     - name: Limit Info Gathering to Volume and Lun Information as Cluster Admin
     na_ontap_info:
-      hostname: "na-vsim"
+      hostname: "192.168.10.52"
       username: "admin"
-      password: "admins_password"
+      password: "Admin12."
       gather_subset:
         - volume_info
         - lun_info
