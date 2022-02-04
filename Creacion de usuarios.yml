@@ -16,7 +16,7 @@
       name: webdvi
       applications: ssh,console,ontapi,serviceprocessor,http
       authentication_method: password
-      set_password: @dm1n12.
+      set_password: Admin12.
       lock_user: True
       role_name: admin
       <<: *login
@@ -26,7 +26,7 @@
       name: fulvio
       applications: ssh,console,ontapi,serviceprocessor,http
       authentication_method: password
-      set_password: @dm1n12.
+      set_password: Admin12.
       lock_user: True
       role_name: admin
       <<: *login
