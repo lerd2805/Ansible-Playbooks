@@ -9,7 +9,7 @@
      password: Admin12. # Cluster Password
      https: true
      validate_certs: false
-  task:  
+  tasks:  
   - name: Assign specified total disks to node
     netapp.ontap.na_ontap_disks:
      node: SGL_CL_910-01
