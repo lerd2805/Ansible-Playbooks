@@ -12,9 +12,6 @@
   tasks:
     - name: Get NetApp info as Cluster Admin (Password Authentication)
     na_ontap_info:
-     hostname: "na-vsim"
-     username: "admin"
-     password: "admins_password"
-    register: ontap_info
+     register: ontap_info
   - debug:
       msg: "{{ ontap_info.ontap_info }}"
