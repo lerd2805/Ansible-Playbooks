@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: NetApp Info
+  vars:
+    login: &login
+     hostname: 192.168.10.52 # NetApp Cluster IP
+     username: ansible # Cluster User
+     password: Admin12. # Cluster Password
+     https: true
+     validate_certs: false
+  tasks:  
+   - name: Create User
+     netapp.ontap.na_ontap_user:
+      state: present
+      name: webdvi
+      applications: ssh,console,ontapi,serviceprocessor,http
+      authentication_method: password
+      set_password: @dm1n12.
+      lock_user: True
+      role_name: admin
+      <<: *login
+   - name: Create User
+     netapp.ontap.na_ontap_user:
+      state: present
+      name: fulvio
+      applications: ssh,console,ontapi,serviceprocessor,http
+      authentication_method: password
+      set_password: @dm1n12.
+      lock_user: True
+      role_name: admin
+      <<: *login
