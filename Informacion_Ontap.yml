@@ -11,11 +11,19 @@
      validate_certs: false
   tasks:
     - name: Limit Info Gathering to Volume and Lun Information as Cluster Admin
+      na_ontap_info:
+        hostname: "192.168.10.52"
+        username: "admin"
+        password: "Admin12."
+        gather_subset:
+         - volume_info
+         - lun_info
+     register: ontap_info
+    - name: Get NetApp info as Cluster Admin (Password Authentication)
     na_ontap_info:
-      hostname: "192.168.10.52"
-      username: "admin"
-      password: "Admin12."
-      gather_subset:
-        - volume_info
-        - lun_info
+        hostname: "na-vsim"
+        username: "admin"
+        password: "admins_password"
     register: ontap_info
+  - debug:
+      msg: "{{ ontap_info.ontap_info }}"
