@@ -16,5 +16,4 @@
      disk_count: 30
      disk_type: FCAL
      min_spares: 0
-     hostname: "{{ hostname }}"
      <<: *login
