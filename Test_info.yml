@@ -9,13 +9,13 @@
       hostname: "192.168.10.52"
       https: true
       password: Admin12.
-      username: ansible
+      username: admin
       validate_certs: false
 - 
   na_ontap_info: 
     gather_subset: aggregate_info
-    hostname: na-vsim
-    password: admins_password
+    hostname: "192.168.10.52"
+    password: Admin12.
     username: admin
   name: "Limit Info Gathering to Aggregate Information as Cluster Admin"
   register: ontap_info
