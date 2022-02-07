@@ -14,4 +14,4 @@
     na_ontap_info: 
       gather_subset: aggregate_info
       <<: *login 
-  register: ontap_info
+    register: ontap_info
