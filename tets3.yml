@@ -10,8 +10,8 @@
       username: admin
       validate_certs: false
   tasks: 
-- name: "Limit Info Gathering to Aggregate Information as Cluster Admin"
-  na_ontap_aggregate: 
+- name: Aggregate Information
+  na_ontap_info: 
     gather_subset: aggregate_info
     hostname: "192.168.10.52"
     password: Admin12.
