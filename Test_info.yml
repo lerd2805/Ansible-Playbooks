@@ -3,7 +3,7 @@
   gather_facts: false
   hosts: localhost
   name: "NetApp Info"
-  tasks: ~
+  tasks: 
   vars: 
     login: 
       hostname: "192.168.10.52"
