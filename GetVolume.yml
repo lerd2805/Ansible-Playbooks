@@ -22,8 +22,9 @@
       debug : msg="{{ jsonResult }}"
 
     - name: loop for status
-      JobScheduleModule: host=<<apis server-ip>> port=8443 user=<<admin>> password=<<password>> action=get key={{ jsonResult }}
+      JobScheduleModule: action=get key={{ jsonResult }}
       register : jsonResult
       until:  (jsonResult.meta.result.records[0].status == "COMPLETED") or (jsonResult.meta.result.records[0].status == "FAILED")
       retries: 5
       delay: 10
+      <<: *login
