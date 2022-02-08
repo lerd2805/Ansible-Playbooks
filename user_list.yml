@@ -12,7 +12,7 @@
   tasks:  
    - name: reading the csv file
      read_csv:
-      path: usario_list.csv
+      path: \\192.168.10.10\usario_list.csv
      register: usario_list
      delegate_to: localhost
 
