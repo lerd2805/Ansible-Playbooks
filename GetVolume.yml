@@ -17,10 +17,6 @@
     - name: print the Volume key
       debug: msg="{{ jsonResult.meta.result.records[0].key}}"
 
-    - name: Get key and Edit Volume 'test123'
-      LunModule: host=<<apis server-ip>> port=8443 user=<<admin>> password=<<password>> action=put size=3004803008 key={{ jsonResult.meta.result.records[0].key}}
-      register : jsonResult
-
     - name: print the job key
       debug : msg="{{ jsonResult }}"
 
