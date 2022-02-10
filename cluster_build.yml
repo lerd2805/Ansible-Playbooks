@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: Create cluster
+  vars:
+    login: &login
+     hostname: 192.168.10.52 # NetApp Cluster IP
+     username: admin # Cluster User
+     password: Admin12. # Cluster Password
+     https: true
+     validate_certs: false
+    netapp_hostname: SGL_CL_LAB_5
+    netapp_username: admin
+    netapp_password: Admin12.
+    single_node_cluster: no
+tasks:
+- name: Create cluster
+  netapp.ontap.na_ontap_cluster:
+    state: present
+    cluster_name: new_cluster
+    time_out: 0
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+    single_node_cluster: "{{ single_node_cluster }}"
+
+    
+    
