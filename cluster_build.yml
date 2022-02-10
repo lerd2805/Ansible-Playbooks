@@ -1,28 +1,59 @@
 ---
 - hosts: localhost
   gather_facts: false
-  name: Create cluster
+  collections:
+    - netapp.ontap
+  vars_files: "{{ file }}"
   vars:
     login: &login
-     hostname: 192.168.10.52 # NetApp Cluster IP
-     username: admin # Cluster User
-     password: Admin12. # Cluster Password
-     https: true
-     validate_certs: false
-    netapp_hostname: SGL_CL_LAB_5
-    netapp_username: admin
-    netapp_password: Admin12.
-    single_node_cluster: no
-tasks:
-- name: Create cluster
-  netapp.ontap.na_ontap_cluster:
-    state: present
-    cluster_name: new_cluster
-    time_out: 0
-    hostname: "{{ netapp_hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
-    single_node_cluster: "{{ single_node_cluster }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      https: true
+      validate_certs: false
+  name: "Build cluster: {{ cluster }}"
+  tasks:
+  - name: create cluster
+    na_ontap_cluster:
+      state: present
+      cluster_name: "{{ cluster }}"
+      hostname: "{{ node1.dhcp_ip }}"
+      <<: *login
+  - name: "Join Node to {{ cluster }}"
+    na_ontap_cluster:
+        state: present
+        cluster_ip_address:  169.254.31.132
+        #cluster_name: "{{ cluster }}"
+        hostname: "{{ node1.dhcp_ip }}"
+        <<: *login
+  - name: Create cluster mgmt lif
+    na_ontap_interface:
+      state: present
+      interface_name: "{{ cluster }}_mgmt"
+      vserver: "{{ cluster }}"
+      address: "{{ cluster_mgmt }}"
+      netmask: 255.255.255.0
+      role: cluster-mgmt
+      home_node: "{{ cluster }}-01"
+      home_port: e0c
+      hostname: "{{ node1.dhcp_ip }}"
+      <<: *login
+  - name: Create User
+    na_ontap_user:
+      state: present
+      name: admin
+      applications: ssh,console,http,ontapi,service-processor
+      authentication_method: password
+      role_name: admin
+      vserver: "{{ cluster }}"
+      hostname: "{{ cluster_mgmt }}"
+      <<: *login
+  - name: remove auto mgmt lif
+    na_ontap_interface:
+      state: absent
+      interface_name: "{{ cluster }}-01_mgmt_auto"
+      vserver: "{{ cluster }}"
+      hostname: "{{ cluster_mgmt }}"
+      <<: *login
 
     
     
