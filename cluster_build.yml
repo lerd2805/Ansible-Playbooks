@@ -3,13 +3,23 @@
   gather_facts: false
   collections:
     - netapp.ontap
-  vars_files: "{{ file }}"
-  vars:
+    vars:
     login: &login
       username: "{{ username }}"
       password: "{{ password }}"
       https: true
       validate_certs: false
+     username: admin
+     password: Admin12.
+     cluster: ansible_lab
+     cluster_mgmt: 192.168.10.47
+     subnet: 255.255.254.0
+     gateway: 192.168.10.1
+     node1:
+      dhcp_ip: 192.168.10.44
+     node2:
+      dhcp_ip: 192.168.10.46
+      cluster_intra: 169.254.225.25 
   name: "Build cluster: {{ cluster }}"
   tasks:
   - name: create cluster
