@@ -21,7 +21,7 @@
   - name: "Join Node to {{ cluster }}"
     na_ontap_cluster:
         state: present
-        cluster_ip_address:  169.254.31.132
+        cluster_ip_address:  169.254.225.25
         #cluster_name: "{{ cluster }}"
         hostname: "{{ node1.dhcp_ip }}"
         <<: *login
@@ -31,7 +31,7 @@
       interface_name: "{{ cluster }}_mgmt"
       vserver: "{{ cluster }}"
       address: "{{ cluster_mgmt }}"
-      netmask: 255.255.255.0
+      netmask: 255.255.254.0
       role: cluster-mgmt
       home_node: "{{ cluster }}-01"
       home_port: e0c
@@ -54,6 +54,3 @@
       vserver: "{{ cluster }}"
       hostname: "{{ cluster_mgmt }}"
       <<: *login
-
-    
-    
