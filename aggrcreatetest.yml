@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: NetApp CIFS Setup
+  vars:
+    login: &login
+     https: true
+     validate_certs: false
+  tasks:
+  - name: Create and Online New Data Aggregate
+    na_ontap_aggregate:
+      state: present
+      service_state: online
+      name: "{{ aggrdataname }}"
+      disk_count: "{{ diskcount }}"
+      wait_for_online: true
+      time_out: 300
+      <<: *login
