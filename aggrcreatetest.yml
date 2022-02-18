@@ -1,11 +1,7 @@
 ---
 - hosts: localhost
   gather_facts: false
-  name: NetApp CIFS Setup
-  vars:
-    login: &login
-     https: true
-     validate_certs: false
+  name: NetApp Aggregate Create
   tasks:
   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
