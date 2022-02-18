@@ -11,4 +11,6 @@
       disk_count: "{{ diskcount }}"
       wait_for_online: true
       time_out: 300
-      <<: *login
+      hostname: "{{ hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
