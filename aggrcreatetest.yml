@@ -9,10 +9,10 @@
     na_ontap_aggregate:
       state: present
       service_state: online
-      name: "{{ aggrdataname }}"
-      disk_count: "{{ diskcount }}"
       wait_for_online: true
       time_out: 300
       hostname: "{{ hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
+      name: "{{ aggrdataname }}"
+      disk_count: "{{ diskcount }}"
