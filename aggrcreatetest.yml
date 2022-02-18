@@ -3,7 +3,11 @@
   gather_facts: false
   name: NetApp Aggregate Create
   vars:
-    aggrdataname: aggr_prueba
+    hostname:
+    username:
+    password:
+    aggrdataname:
+    diskcount:
   tasks:
   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
@@ -11,7 +15,7 @@
       service_state: online
       wait_for_online: true
       time_out: 300
-      hostname: "{{ hostname_netapp }}"
+      hostname: "{{ hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
       name: "{{ aggrdataname }}"
