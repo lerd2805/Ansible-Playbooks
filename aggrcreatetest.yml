@@ -2,6 +2,8 @@
 - hosts: localhost
   gather_facts: false
   name: NetApp Aggregate Create
+  vars:
+    aggrdataname: aggr_prueba
   tasks:
   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
