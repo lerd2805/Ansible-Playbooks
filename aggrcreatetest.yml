@@ -5,11 +5,13 @@
       netapp.ontap.na_ontap_aggregate:
         state: present
         service_state: online
-        name: "{{ aggrdataname }}"
-        disk_count: "{{ diskcount }}"
         wait_for_online: True
         time_out: 300
         snaplock_type: non_snaplock
+        https: true
+        validate_certs: false
         hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
+        name: "{{ aggrdataname }}"
+        disk_count: "{{ diskcount }}"
