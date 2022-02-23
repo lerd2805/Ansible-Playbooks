@@ -9,4 +9,4 @@
         hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
-    - debug: var=ontap_info.ontap_info.net_interface_info.SGL_CL_910-01_mgmt1.address
+    - debug: var=ontap_info.ontap_info.net_interface_info
