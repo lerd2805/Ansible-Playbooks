@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  vars:
+    interface: "-01_clus1"
   tasks:
     - name: Get Network Info
       na_ontap_info:
@@ -9,6 +11,5 @@
         hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
-        interface: "-01_clus1"
       register: ontap_info
     - debug: var=ontap_info.ontap_info.net_interface_info.{{ netapp_cluster_name }}{{ interface }}.address
