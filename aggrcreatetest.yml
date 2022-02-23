@@ -1,22 +1,24 @@
 ---
 - hosts: localhost
   gather_facts: false
-  name: NetApp Aggregate Create
+  name: NetApp CIFS Setup
   vars:
-    hostname: 192.168.10.52
-    username: ansible
-    password: Admin12.
-    aggrdataname: aggr_prueba
-    diskcount: 5
+    login: &login
+     hostname: 192.168.10.52 # NetApp Cluster IP
+     username: ansible # Cluster User
+     password: Admin12. # Cluster Password
+     https: true
+     validate_certs: false
+    clustername: SGL_CL_910-01 # Cluster Name
+    aggrdataname: aggr1_SGL_CL_910_02_data # New Data Aggregate name
+    diskcount: 5 # Number of disks to add to the Data Aggregate
   tasks:
   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
       state: present
       service_state: online
-      wait_for_online: true
-      time_out: 300
-      hostname: "{{ hostname }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
       name: "{{ aggrdataname }}"
       disk_count: "{{ diskcount }}"
+      wait_for_online: true
+      time_out: 300
+      <<: *login
