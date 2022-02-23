@@ -1,16 +1,15 @@
 ---
 - hosts: localhost
-  gather_facts: false
-  name: NetApp aggr create
-  tasks:
+  task:
     - name: Create Aggregates and wait 5 minutes until aggregate is online
       netapp.ontap.na_ontap_aggregate:
         state: present
         service_state: online
+        name: "{{ aggrdataname }}"
+        disk_count: "{{ diskcount }}"
         wait_for_online: True
         time_out: 300
+        snaplock_type: non_snaplock
         hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
-        name: "{{ aggrdataname }}"
-        disk_count: "{{ diskcount }}"
