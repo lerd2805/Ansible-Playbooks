@@ -2,9 +2,6 @@
 - hosts: localhost
   gather_facts: false
   name: NetApp Aggregate Create
-  vars:
-    username: ansible
-    password: Admin12. 
   vars_prompt:
   tasks:
   - name: Create and Online New Data Aggregate
