@@ -10,5 +10,5 @@
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
       register: ontap_info
-- debug:
-    msg: "{{ ontap_info.ontap_info }}"
+    - debug:
+      msg: "{{ ontap_info.ontap_info }}"
