@@ -3,7 +3,11 @@
   gather_facts: false
   name: NetApp Aggregate Create
   vars_prompt:
-    
+    hostname: "{{ hostname }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+    name: "{{ aggrdataname }}"
+    disk_count: "{{ diskcount }}"
   tasks:
   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
