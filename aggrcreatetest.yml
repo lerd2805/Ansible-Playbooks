@@ -1,6 +1,6 @@
 ---
-- hosts: localhost
-  task:
+- hosts: all
+  tasks:
     - name: Create Aggregates and wait 5 minutes until aggregate is online
       netapp.ontap.na_ontap_aggregate:
         state: present
