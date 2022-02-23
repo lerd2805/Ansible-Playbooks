@@ -9,9 +9,8 @@
         service_state: online
         wait_for_online: True
         time_out: 300
-        snaplock_type: non_snaplock
         hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
-        aggrdataname: "{{ aggrdataname }}"
+        name: "{{ aggrdataname }}"
         disk_count: "{{ diskcount }}"
