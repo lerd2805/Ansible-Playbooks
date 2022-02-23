@@ -14,4 +14,4 @@
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
         aggrdataname: "{{ aggrdataname }}"
-        diskcout: "{{ diskcount }}"
+        disk_count: "{{ diskcount }}"
