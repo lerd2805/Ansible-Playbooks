@@ -2,12 +2,8 @@
 - hosts: localhost
   gather_facts: false
   name: NetApp Aggregate Create
-  vars:
-    hostname: 192.168.10.52
-    username: ansible
-    password: Admin12.
-    aggrdataname: aggr_prueba
-    diskcount: 5
+  vars_prompt:
+    
   tasks:
   - name: Create and Online New Data Aggregate
     na_ontap_aggregate:
