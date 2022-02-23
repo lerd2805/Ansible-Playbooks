@@ -2,7 +2,6 @@
 - hosts: localhost
   gather_facts: false
   name: NetApp aggr create
-vars_prompt:
 tasks:
 - name: Create Aggregates and wait 5 minutes until aggregate is online
   netapp.ontap.na_ontap_aggregate:
