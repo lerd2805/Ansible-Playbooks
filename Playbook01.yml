@@ -31,7 +31,7 @@
 
   - name: Create Cluster mgmt lif
     na_ontap_interface:
-      use_rest: Always
+      use_rest: Never
       https: true
       validate_certs: false
       state: present
