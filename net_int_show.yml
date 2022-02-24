@@ -9,6 +9,6 @@
       hostname: "{{ netapp_hostname }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-      command: ['network', 'interface', 'show', '-vserver', 'Cluster', '-lif', 'clus1' '-fields', 'address']
+      command: ['network', 'interface', 'show', '-vserver', 'Cluster', '-lif', 'clus1', '-fields', 'address']
       privilege: 'admin'
       return_dict: true
