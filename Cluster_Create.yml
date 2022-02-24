@@ -12,6 +12,7 @@
       validate_certs: false
       state: present
       cluster_name: "{{ cluster }}"
+      time_out: 0
       hostname: "{{ node1_dhcp_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
