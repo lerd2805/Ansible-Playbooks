@@ -11,32 +11,4 @@
       hostname: "{{ node1_dhcp_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-  
-  - name: Create cluster mgmt lif
-    na_ontap_interface:
-      https: true
-      validate_certs: false
-      state: present
-      interface_name: "{{ cluster }}_mgmt"
-      vserver: "{{ cluster }}"
-      address: "{{ cluster_mgmt }}"
-      netmask: "{{ netmask }}"
-      role: cluster-mgmt
-      home_node: "{{ cluster }}-01"
-      home_port: "{{home_port}}"
-      hostname: "{{ node1_dhcp_ip }}"
-      username: "{{ netapp_username }}"
-      password: "{{ netapp_password }}"
-    
-
-  - name: remove auto mgmt lif
-    na_ontap_interface:
-      https: true
-      validate_certs: false
-      state: absent
-      interface_name: "{{ cluster }}-01_mgmt_auto"
-      vserver: "{{ cluster }}"
-      hostname: "{{ cluster_mgmt }}"
-      username: "{{ netapp_username }}"
-      password: "{{ netapp_password }}"
       
