@@ -36,7 +36,7 @@
       validate_certs: false
       state: present
       role: cluster-mgmt
-      home_port: e0m
+      home_port: e0c
       hostname: "{{ netapp_node1_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
