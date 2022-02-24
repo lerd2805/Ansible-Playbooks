@@ -4,13 +4,13 @@
   collections:
     - netapp.ontap
   tasks:
-  - name: "Build cluster: {{ cluster }}"
+  - name: "Build cluster: {{ netapp_cluster_name }}"
     na_ontap_cluster:
       use_rest: Always
       https: true
       validate_certs: false
       state: present
-      cluster_name: "{{ cluster }}"
+      cluster_name: "{{ netapp_cluster_name }}"
       time_out: 0
       hostname: "{{ netapp_node1_ip }}"
       username: "{{ netapp_username }}"
