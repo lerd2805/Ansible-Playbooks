@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  gather_facts: false
+  collections:
+    - netapp.ontap
+  tasks:
+  - name: "Build cluster: {{ cluster }}"
+    na_ontap_cluster:
+      use_rest: Always
+      https: true
+      validate_certs: false
+      state: present
+      cluster_name: "{{ cluster }}"
+      time_out: 0
+      hostname: "{{ node1_dhcp_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      
+    - name: Get ONTAP Intra Cluster IP Address
+      na_ontap_info:
+        gather_subset: "net_interface_info"
+        https: true
+        validate_certs: false
+        hostname: "{{ netapp_hostname }}"
+        username: "{{ netapp_username }}"
+        password: "{{ netapp_password }}"
+      register: ontap_info
+    - set_fact: 
+        netapp_intra_cluster_address: "{{ ontap_info.ontap_info.net_interface_info[ netapp_cluster_name + '-01_clus1'].address }}"
+    - debug: var=netapp_intra_cluster_address
