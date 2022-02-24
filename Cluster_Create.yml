@@ -1,28 +1,24 @@
 ---
 - hosts: localhost
-  gather_facts: false
-  collections:
-    - netapp.ontap
-  vars:
-    https: true
-    validate_certs: false
-    name: "Build cluster: {{ cluster }}"
+  name: "Build cluster: {{ cluster }}"
   tasks:
   - name: create cluster
     na_ontap_cluster:
+      https: true
+      validate_certs: false
       state: present
       cluster_name: "{{ cluster }}"
       hostname: "{{ node1_dhcp_ip }}"
   
   - name: Create cluster mgmt lif
     na_ontap_interface:
+      https: true
+      validate_certs: false
       state: present
       interface_name: "{{ cluster }}_mgmt"
       vserver: "{{ cluster }}"
       address: "{{ cluster_mgmt }}"
       netmask: "{{ netmask }}"
-      
-      
       role: cluster-mgmt
       home_node: "{{ cluster }}-01"
       home_port: "{{home_port}}"
@@ -31,6 +27,8 @@
 
   - name: remove auto mgmt lif
     na_ontap_interface:
+      https: true
+      validate_certs: false
       state: absent
       interface_name: "{{ cluster }}-01_mgmt_auto"
       vserver: "{{ cluster }}"
