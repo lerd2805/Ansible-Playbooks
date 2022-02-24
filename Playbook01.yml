@@ -32,6 +32,8 @@
 
   - name: Create Cluster mgmt lif
     na_ontap_interface:
+      https: true
+      validate_certs: false
       state: present
       role: cluster-mgmt
       home_port: e0m
