@@ -3,6 +3,9 @@
   gather_facts: false
   collections:
     - netapp.ontap
+  vars:
+    https: true
+    validate_certs: false
     name: "Build cluster: {{ cluster }}"
   tasks:
   - name: create cluster
