@@ -12,7 +12,7 @@
     na_ontap_cluster:
       state: present
       cluster_name: "{{ cluster }}"
-      hostname: "{{ node1.dhcp_ip }}"
+      hostname: "{{ node1_dhcp_ip }}"
   
   - name: Create cluster mgmt lif
     na_ontap_interface:
@@ -26,7 +26,7 @@
       role: cluster-mgmt
       home_node: "{{ cluster }}-01"
       home_port: "{{home_port}}"
-      hostname: "{{ node1.dhcp_ip }}"
+      hostname: "{{ node1_dhcp_ip }}"
     
 
   - name: remove auto mgmt lif
