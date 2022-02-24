@@ -6,6 +6,8 @@
   tasks:
   - name: run ontap cli command
     netapp.ontap.na_ontap_command:
+      https: true
+      validate_certs: false
       hostname: "{{ netapp_hostname }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
