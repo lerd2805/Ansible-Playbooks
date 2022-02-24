@@ -12,4 +12,4 @@
       register: ontap_info.ontap_info.net_interface_info.ANSIBLE-01_clus1.address
     - debug: 
         msg:
-          register: 
+          ip_intra_cluster: "{{ register }}" 
