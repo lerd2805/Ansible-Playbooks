@@ -21,7 +21,7 @@
         gather_subset: "net_interface_info"
         https: true
         validate_certs: false
-        hostname: "{{ netapp_hostname }}"
+        hostname: "{{ netapp_node1_ip }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
       register: ontap_info
