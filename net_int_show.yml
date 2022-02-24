@@ -10,6 +10,6 @@
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
       register: ontap_info
-    - set_fact: 
-      intra_address: "{{ ontap_info.ontap_info.net_interface_info[ netapp_cluster_name + '-01_clus1'].address }}"
-    - debug: var=intra_address
+- set_fact: 
+  intra_address: "{{ ontap_info.ontap_info.net_interface_info[ netapp_cluster_name + '-01_clus1'].address }}"
+- debug: var=intra_address
