@@ -6,7 +6,7 @@
   tasks:
     - name: Get ONTAP Intra Cluster IP Address
       na_ontap_info:
-        use_rest: always
+        use_rest: "always"
         gather_subset: "net_interface_info"
         https: true
         validate_certs: false
