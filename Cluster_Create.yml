@@ -21,6 +21,8 @@
       vserver: "{{ cluster }}"
       address: "{{ cluster_mgmt }}"
       netmask: "{{ netmask }}"
+      
+      
       role: cluster-mgmt
       home_node: "{{ cluster }}-01"
       home_port: "{{home_port}}"
