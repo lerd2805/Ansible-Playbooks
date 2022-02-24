@@ -4,7 +4,7 @@
   tasks:
   - name: create cluster
     na_ontap_cluster:
-      use_rest: "Always"
+      use_rest: always
       https: true
       validate_certs: false
       state: present
