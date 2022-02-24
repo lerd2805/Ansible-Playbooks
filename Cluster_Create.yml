@@ -1,6 +1,9 @@
 ---
 - hosts: localhost
   name: "Build cluster: {{ cluster }}"
+  gather_facts: false
+  collections:
+    - netapp.ontap
   tasks:
   - name: create cluster
     na_ontap_cluster:
