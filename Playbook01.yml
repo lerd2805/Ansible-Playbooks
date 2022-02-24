@@ -1,4 +1,3 @@
-
 ---
 - hosts: localhost
   gather_facts: false
@@ -32,6 +31,7 @@
 
   - name: Create Cluster mgmt lif
     na_ontap_interface:
+      use_rest: Always
       https: true
       validate_certs: false
       state: present
@@ -40,7 +40,7 @@
       hostname: "{{ netapp_node1_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-      interface_name: "{{ netapp_cluster_name }}_mgmt"
+      interface_name: "{{ netapp_cluster_name }}_cluster_mgmt"
       vserver: "{{ netapp_cluster_name }}"
       address: "{{ netapp_cluster_mgmt_ip }}"
       netmask: "{{ netapp_netmask }}"
