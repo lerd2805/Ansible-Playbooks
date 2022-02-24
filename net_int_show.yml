@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Get Network Info
+    - name: Get ONTAP Inter Cluster IP Address
       na_ontap_info:
         gather_subset: "net_interface_info"
         https: true
@@ -11,5 +11,5 @@
         password: "{{ netapp_password }}"
       register: ontap_info
     - set_fact: 
-        intra_address: "{{ ontap_info.ontap_info.net_interface_info[ netapp_cluster_name + '-01_clus1'].address }}"
-    - debug: var=intra_address
+        netapp_inter_cluster_address: "{{ ontap_info.ontap_info.net_interface_info[ netapp_cluster_name + '-01_clus1'].address }}"
+    - debug: var=netapp_inter_cluster_address
