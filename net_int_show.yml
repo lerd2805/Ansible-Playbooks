@@ -6,8 +6,8 @@
   tasks:
     - name: Get ONTAP Intra Cluster IP Address
       na_ontap_info:
-        use_rest: lazy
         gather_subset: "net_interface_info"
+        use_rest: auto
         https: true
         validate_certs: false
         hostname: "{{ netapp_hostname }}"
