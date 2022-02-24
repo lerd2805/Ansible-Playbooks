@@ -9,7 +9,7 @@
         hostname: "{{ netapp_hostname }}"
         username: "{{ netapp_username }}"
         password: "{{ netapp_password }}"
-      clus1: ontap_info.ontap_info.net_interface_info.ANSIBLE-01_clus1.address
+      register: ontap_info.ontap_info
     - debug: 
         msg:
-          ip_intra_cluster: "{{ clus1 }}" 
+          intra_address: "{{ ontap_info.ontap_info.net_interface_info[ netapp_cluster_name + '-01_clus1'].address }}"
