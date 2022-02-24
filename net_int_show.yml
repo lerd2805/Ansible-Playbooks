@@ -15,5 +15,5 @@
         password: "{{ netapp_password }}"
       register: ontap_info
     - set_fact: 
-        netapp_intra_cluster_address: "{{ ontap_info.ontap_info.net_interface_info.clus1.address }}"
+        netapp_intra_cluster_address: "{{ ontap_info.ontap_info.net_interface_info }}"
     - debug: var=netapp_intra_cluster_address
