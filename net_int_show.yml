@@ -6,6 +6,7 @@
   tasks:
   - name: run ontap cli command
     netapp.ontap.na_ontap_command:
+      use_rest: Always
       https: true
       validate_certs: false
       hostname: "{{ netapp_hostname }}"
