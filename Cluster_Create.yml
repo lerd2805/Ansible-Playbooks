@@ -9,6 +9,8 @@
       state: present
       cluster_name: "{{ cluster }}"
       hostname: "{{ node1_dhcp_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
   
   - name: Create cluster mgmt lif
     na_ontap_interface:
@@ -23,6 +25,8 @@
       home_node: "{{ cluster }}-01"
       home_port: "{{home_port}}"
       hostname: "{{ node1_dhcp_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
     
 
   - name: remove auto mgmt lif
@@ -33,4 +37,6 @@
       interface_name: "{{ cluster }}-01_mgmt_auto"
       vserver: "{{ cluster }}"
       hostname: "{{ cluster_mgmt }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
       
