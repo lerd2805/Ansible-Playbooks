@@ -12,7 +12,7 @@
       hostname: "{{ netapp_hostname }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-      command: 'version'
+      command: 'network/ip/interfaces'
       verb: 'GET'
     register: ontap_info
   - debug: var=ontap_info
