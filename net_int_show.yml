@@ -14,3 +14,5 @@
       password: "{{ netapp_password }}"
       command: 'version'
       verb: 'GET'
+    register: ontap_info
+  - debug: var=ontap_info
