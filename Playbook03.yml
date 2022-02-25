@@ -14,4 +14,4 @@
     password: "{{ netapp_password }}"
     name: "{{ netapp_new_user }}"
     set_password: "{{ netapp_new_user_pass }}"
-    vserver: "{{ netapp_cluster_name }}"
+    vserver: "{{ netapp_vserver }}"
