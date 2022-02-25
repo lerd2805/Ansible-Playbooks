@@ -1,14 +1,14 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Create User
+  - name: Create User "{{ netapp_new_user }}"
     netapp.ontap.na_ontap_user:
       https: true
       validate_certs: false
       state: present
       applications: ssh,console,ontapi,service_processor,http
       authentication_method: password
-      lock_user: True
+      lock_user: false
       role_name: admin
       hostname: "{{ netapp_cluster_mgmt_ip }}"
       username: "{{ netapp_username }}"
