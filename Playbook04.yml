@@ -2,7 +2,7 @@
 - hosts: localhost
   tasks:
   - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-01
-		na_ontap_disks:
+    na_ontap_disks:
       https: true
       validate_certs: false
       hostname: "{{ netapp_cluster_mgmt_ip }}"
@@ -14,7 +14,7 @@
 			min_spares: "{{ netapp_min_spares }}"
 
   - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-02
-		na_ontap_disks:
+    na_ontap_disks:
       https: true
       validate_certs: false
       hostname: "{{ netapp_cluster_mgmt_ip }}"
