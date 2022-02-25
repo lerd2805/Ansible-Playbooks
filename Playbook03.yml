@@ -1,11 +1,12 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Create User {{ netapp_new_user }}
+  - name: Create User: webdvi
     netapp.ontap.na_ontap_user:
       https: true
       validate_certs: false
       state: present
+      name: webdvi
       applications: ssh,console,ontapi,service_processor,http
       authentication_method: password
       lock_user: false
@@ -13,6 +14,21 @@
       hostname: "{{ netapp_cluster_mgmt_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-      name: "{{ netapp_new_user }}"
-      set_password: "{{ netapp_new_user_pass }}"
-      vserver: "{{ netapp_vserver }}"
+      set_password: "{{ netapp_new_user1_pass }}"
+      vserver: "{{ netapp_cluster_name }}"
+
+  - name: Create User: maintenance
+    netapp.ontap.na_ontap_user:
+      https: true
+      validate_certs: false
+      state: present
+      name: maintenance
+      applications: ssh,console,ontapi,service_processor,http
+      authentication_method: password
+      lock_user: false
+      role_name: admin
+      hostname: "{{ netapp_cluster_mgmt_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      set_password: "{{ netapp_new_user2_pass }}"
+      vserver: "{{ netapp_cluster_name }}"
