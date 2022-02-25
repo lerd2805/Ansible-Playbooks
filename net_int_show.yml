@@ -4,14 +4,13 @@
   collections:
     - netapp.ontap
   tasks:
-    - name: Get ONTAP Intra Cluster IP Address
-      na_ontap_rest_info:
-        gather_subset: "cluster/jobs"
-        use_rest: Always
-        https: true
-        validate_certs: false
-        hostname: "{{ netapp_hostname }}"
-        username: "{{ netapp_username }}"
-        password: "{{ netapp_password }}"
-      register: ontap_info
-    - debug: var=ontap_info
+  - name: run ontap rest cli command
+    na_ontap_rest_cli:
+      use_rest: Always
+      https: true
+      validate_certs: false
+      hostname: "{{ netapp_hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      command: 'version'
+      verb: 'GET'
