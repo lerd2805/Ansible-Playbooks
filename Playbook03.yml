@@ -14,7 +14,7 @@
       hostname: "{{ netapp_cluster_mgmt_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-      set_password: "{{ netapp_new_user1_pass }}"
+      set_password: "{{ netapp_webdvi_pass }}"
       vserver: "{{ netapp_cluster_name }}"
 
   - name: Create User: maintenance
@@ -30,5 +30,5 @@
       hostname: "{{ netapp_cluster_mgmt_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
-      set_password: "{{ netapp_new_user2_pass }}"
+      set_password: "{{ netapp_maintenance_pass }}"
       vserver: "{{ netapp_cluster_name }}"
