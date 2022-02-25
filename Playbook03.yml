@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Create User "{{ netapp_new_user }}"
+  - name: Create User {{ netapp_new_user }}
     netapp.ontap.na_ontap_user:
       https: true
       validate_certs: false
