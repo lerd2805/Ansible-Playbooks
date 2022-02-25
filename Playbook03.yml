@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-  - name: Create User: webdvi
+  - name: "Create User: webdvi"
     netapp.ontap.na_ontap_user:
       https: true
       validate_certs: false
@@ -17,7 +17,7 @@
       set_password: "{{ netapp_webdvi_pass }}"
       vserver: "{{ netapp_cluster_name }}"
 
-  - name: Create User: maintenance
+  - name: "Create User: maintenance"
     netapp.ontap.na_ontap_user:
       https: true
       validate_certs: false
