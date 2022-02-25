@@ -4,14 +4,14 @@
   collections:
     - netapp.ontap
   tasks:
-  - name: run ontap cli command
-    netapp.ontap.na_ontap_command:
-      use_rest: Always
-      https: true
-      validate_certs: false
-      hostname: "{{ netapp_hostname }}"
-      username: "{{ netapp_username }}"
-      password: "{{ netapp_password }}"
-      command: ['network', 'interface', 'show', '-vserver', 'Cluster', '-lif', 'clus1', '-fields', 'address']
-      privilege: 'admin'
-      return_dict: true
+    - name: Get ONTAP Intra Cluster IP Address
+      na_ontap_rest_info:
+        gather_subset: "net_interface_info"
+        use_rest: Always
+        https: true
+        validate_certs: false
+        hostname: "{{ netapp_hostname }}"
+        username: "{{ netapp_username }}"
+        password: "{{ netapp_password }}"
+      register: ontap_info
+    - debug: var=ontap_info
