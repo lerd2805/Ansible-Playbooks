@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-01
+		na_ontap_disks:
+      https: true
+      validate_certs: false
+      hostname: "{{ netapp_cluster_mgmt_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      node: "{{ netapp_cluster_name }}-01"
+      disk_count: "{{ netapp_disk_count }}"
+      disk_type: "{{ netapp_disk_type }}"
+			min_spares: "{{ netapp_min_spares }}"
+
+  - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-02
+		na_ontap_disks:
+      https: true
+      validate_certs: false
+      hostname: "{{ netapp_cluster_mgmt_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      node: "{{ netapp_cluster_name }}-02"
+      disk_count: "{{ netapp_disk_count }}"
+      disk_type: "{{ netapp_disk_type }}"
+			min_spares: "{{ netapp_min_spares }}"
