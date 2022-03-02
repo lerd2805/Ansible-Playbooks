@@ -24,7 +24,7 @@
       node: "{{ netapp_cluster_name }}-02"
       autoassign: false
     
-  - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-01
+  - name: Assign Disks to {{ netapp_cluster_name }}-01
     na_ontap_disks:
       https: true
       validate_certs: false
@@ -36,7 +36,7 @@
       disk_type: "{{ netapp_disk_type }}"
       min_spares: "{{ netapp_min_spares }}"  
 
-  - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-02
+  - name: Assign Disks to {{ netapp_cluster_name }}-02
     na_ontap_disks:
       https: true
       validate_certs: false
