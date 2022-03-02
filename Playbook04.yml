@@ -6,6 +6,7 @@
   tasks:
   - name: Disable Disk Auto Assign to {{ netapp_cluster_name }}-01
     na_ontap_disk_options:
+      validate_certs: false
       hostname: "{{ netapp_cluster_mgmt_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
@@ -14,6 +15,7 @@
       
   - name: Disable Disk Auto Assign to {{ netapp_cluster_name }}-02
     na_ontap_disk_options:
+      validate_certs: false
       hostname: "{{ netapp_cluster_mgmt_ip }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
