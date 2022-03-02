@@ -12,7 +12,7 @@
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
       node: "{{ netapp_cluster_name }}-01"
-      autoassign: no
+      autoassign: false
       
   - name: Disable Disk Auto Assign to {{ netapp_cluster_name }}-02
     na_ontap_disk_options:
@@ -22,7 +22,7 @@
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
       node: "{{ netapp_cluster_name }}-02"
-      autoassign: no
+      autoassign: false
     
   - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-01
     na_ontap_disks:
