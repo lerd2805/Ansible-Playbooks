@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: NetApp Assign Disk Setup
+  vars:
+    login: &login
+     hostname: 192.168.10.52 # NetApp Cluster IP
+     username: ansible # Cluster User
+     password: Admin12. # Cluster Password
+     https: true
+     validate_certs: false
+  tasks: 
+  - name: Disable Disk Auto Assign
+    na_ontap_disk_options:
+     node: SGL_CL_910-01
+     autoassign: false
+     username: '{{ username }}'
+     password: '{{ password }}'
+     hostname: '{{ hostname }}'
