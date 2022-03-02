@@ -1,6 +1,26 @@
 ---
 - hosts: localhost
   tasks:
+  - name: Disable Disk Auto Assign to {{ netapp_cluster_name }}-01
+    na_ontap_disk_options:
+      https: true
+      validate_certs: false
+      hostname: "{{ netapp_cluster_mgmt_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      node: "{{ netapp_cluster_name }}-01"
+      autoassign: false
+      
+  - name: Disable Disk Auto Assign to {{ netapp_cluster_name }}-02
+    na_ontap_disk_options:
+      https: true
+      validate_certs: false
+      hostname: "{{ netapp_cluster_mgmt_ip }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      node: "{{ netapp_cluster_name }}-02"
+      autoassign: false
+    
   - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-01
     na_ontap_disks:
       https: true
@@ -11,7 +31,7 @@
       node: "{{ netapp_cluster_name }}-01"
       disk_count: "{{ netapp_disk_count }}"
       disk_type: "{{ netapp_disk_type }}"
-      min_spares: "{{ netapp_min_spares }}"
+      min_spares: "{{ netapp_min_spares }}"  
 
   - name: Assign {{ netapp_disk_count }} disks to {{ netapp_cluster_name }}-02
     na_ontap_disks:
